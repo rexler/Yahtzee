@@ -71,27 +71,29 @@ var calculateSingles = function(dice) {
 };
 
 var calculateThreeFourAndYahtzee = function(dice) {
+    var sum = dice.reduce(function(a,b) {
+        return a+b;
+    });
+
     for (var single = 1; single <= 6; single++) {
-        var score = 0;
         var kind = 0;
         dice.forEach(function(dieItem) {
             kind += dieItem == single ? 1 : 0;
-            score += dieItem;
         });
         //Intentional case fallthrough:
         switch (kind) {
             case 5:
                 scores[YAHTZEE] = YAHTZEESCORE;
             case 4:
-                scores[FOURKIND] = score;
+                scores[FOURKIND] = sum;
             case 3:
-                scores[THREEKIND] = score;
+                scores[THREEKIND] = sum;
                 break;
-            default:
-                scores[CHANCE] = score;
         }
 
     }
+
+    scores[CHANCE] = sum;
 };
 
 var calculateStraights = function(dice) {
