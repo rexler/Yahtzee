@@ -1,0 +1,20 @@
+{
+  "name": "simple-yahtzee",
+  "version": "0.1.0",
+  "description": "A simple Yahtzee game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --port 3000",
+    "build": "webpack"
+  },
+  "author": "Alex Pendrey",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
+  },
+  "dependencies": {
+    "lodash": "^4.15.0"
+  }
+}
