@@ -2,6 +2,8 @@
 
 var _ = require('lodash');
 
+var assets = require('./assets');
+
 var gameNumberOfDice = 5;
 
 var THREEKIND = 6, FOURKIND = 7, FULLHOUSE = 8, SMALLST = 9,
@@ -36,7 +38,24 @@ var rollDie = function() {
     return getRandomInt(6);
 };
 
-var playRound = function(keptDice) {
+var resetScores = function() {
+    scores = scores.map(function() {
+        return 0;
+    })
+};
+
+var getScores = function() {
+    return scores;
+};
+
+var drawDice = function(dice, baseElement) {
+    baseElement.innerHTML = '';
+    dice.forEach(function(dieItem) {
+        assets.appendSVG(baseElement, 'dice-' + dieItem, '50', '50');
+    });
+};
+
+var playRound = function(keptDice, baseElement) {
 
     var dice = [];
     var numberOfDice = gameNumberOfDice - keptDice.length;
@@ -54,6 +73,8 @@ var playRound = function(keptDice) {
     calculateStraights(dice);
 
     calculateFullHouse(dice);
+
+    drawDice(dice, baseElement);
 
     return dice;
 };
@@ -156,7 +177,8 @@ var calculateFullHouse = function(dice) {
 var engine = {
     rollDie: rollDie,
     playRound: playRound,
-    scores: scores,
+    resetScores: resetScores,
+    getScores: getScores,
     hands: hands
 };
 

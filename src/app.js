@@ -3,12 +3,18 @@
     "use strict";
 
     var engine = require('./engine');
+    var assets = require('./assets');
 
-    console.log("Dice: " + engine.playRound([]));
+    document.getElementById('btnRollDice').onclick = function(evt) {
+        engine.resetScores();
 
-    engine.hands.forEach(function(hand, index) {
-        console.log(hand + ": " + engine.scores[index]);
-    });
+        var dice = engine.playRound([], document.getElementById('mainCanvas'));
+        console.log('------->', dice);
 
+        var scores = engine.getScores();
+        engine.hands.forEach(function(hand, index) {
+            console.log(hand + ": " + scores[index]);
+        });
+    };
 
 })();
