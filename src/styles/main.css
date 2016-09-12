@@ -1,0 +1,23 @@
+
+.main {
+    display: -webkit-flex;
+    display: flex;
+}
+.btnGen {
+    width: 200px;
+    height: 50px;
+    margin: 10px 0;
+}
+.leftcol {
+    width: 45%
+}
+
+.rightcol {
+    width: 65%;
+}
+.scores table {
+    width: 100%;
+}
+.scores td {
+    width: 50%;
+}

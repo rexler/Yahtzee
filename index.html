@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Yahtzee!</title>
+    <link rel="stylesheet" href="src/styles/main.css" />
 </head>
 <body>
-<!-- TODO: Add stylesheets -->
-<button id="btnRollDice" style="width: 200px; height: 50px">Roll dice</button>
-<p />
-<div id="mainCanvas">
 
+<div class="main">
+    <div class="leftcol">
+        <button id="btnRollDice" class="btnGen">Roll dice</button>
+        <div id="mainCanvas">
+        </div>
+
+    </div>
+    <div class="rightcol">
+        <div class="scores">
+        </div>
+    </div>
 </div>
+
+
+
+
 
 <script src="http://localhost:3000/bundle.js"></script>
 </body>
