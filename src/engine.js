@@ -86,6 +86,7 @@ var playRound = function(keptDice, baseElement) {
 };
 
 var startGame = function(numberOfPlayers) {
+    players = [];
     for (var x = 0; x < numberOfPlayers; x++) {
         players.push({
             name: 'Player' + (x+1),

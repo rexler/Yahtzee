@@ -10,11 +10,10 @@
     };
 
     document.getElementById('btnStartGame').onclick = function(evt) {
+        /* TODO: Bug with start game not resetting scores properly */
         engine.startGame(2);
 
-        console.log(engine.players);
-
-        var rollDice = document.getElementById('btnRollDice').disabled = false;
+        document.getElementById('btnRollDice').disabled = false;
     };
 
     document.getElementById('btnRollDice').onclick = function(evt) {
