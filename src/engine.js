@@ -28,7 +28,9 @@ var hands = [
     "Yahtzee"
 ];
 
-var scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var players = [];
+
+var scores = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 50];
 
 var getRandomInt = function(max) {
     return Math.ceil(Math.random() * max);
@@ -46,6 +48,10 @@ var resetScores = function() {
 
 var getScores = function() {
     return scores;
+};
+
+var getPlayers = function() {
+    return players;
 };
 
 var drawDice = function(dice, baseElement) {
@@ -77,6 +83,15 @@ var playRound = function(keptDice, baseElement) {
     drawDice(dice, baseElement);
 
     return dice;
+};
+
+var startGame = function(numberOfPlayers) {
+    for (var x = 0; x < numberOfPlayers; x++) {
+        players.push({
+            name: 'Player' + (x+1),
+            scores: _.clone(scores)
+        });
+    }
 };
 
 /* Scoring section */
@@ -174,12 +189,16 @@ var calculateFullHouse = function(dice) {
     }
 };
 
+/* Revealing module pattern */
 var engine = {
     rollDie: rollDie,
     playRound: playRound,
     resetScores: resetScores,
     getScores: getScores,
-    hands: hands
+    getPlayers: getPlayers,
+    hands: hands,
+    startGame: startGame,
+    players: players
 };
 
 module.exports = engine;

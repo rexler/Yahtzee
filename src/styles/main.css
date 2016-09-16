@@ -49,6 +49,11 @@ table {
 
 /* -------- CUSTOM STYLES --------- */
 
+a {
+    text-decoration: none;
+    color: #000;
+}
+
 .main {
     display: -webkit-flex;
     display: flex;
@@ -70,5 +75,19 @@ table {
     width: 100%;
 }
 .scores td {
+    width: 25%;
+    padding: 3px;
+    border: solid 2px #fff;
+    border-radius: 5px;
+}
+
+.scores td.red {
+    background-color: indianred;
+}
+.scores td.green {
+    background-color: greenyellow;
+}
+
+.scores td:nth-child(1) {
     width: 50%;
 }
