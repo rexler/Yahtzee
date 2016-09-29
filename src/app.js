@@ -4,9 +4,14 @@
 
     var engine = require('./engine');
     var assets = require('./assets');
+    var util = require('./utility');
 
     var submitScoreEvent = function(evt) {
         console.log(evt);
+        var i = util.indexInParent(evt.target.parentNode.parentNode); //the hand
+        var p = util.indexInParent(evt.target.parentNode); //2nd or 3rd column (player 1 or 2)
+        console.log('player: ' + p + 'index: ' + i);
+        /* TODO: Need a method to submit score */
     };
 
     document.getElementById('btnStartGame').onclick = function(evt) {
