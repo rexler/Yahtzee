@@ -18,7 +18,6 @@
 
     document.getElementById('btnRollDice').onclick = function(evt) {
 
-        /* TODO: Getting messy, need to refactor */
         engine.resetScores();
 
         var dice = engine.playRound([], document.getElementById('mainCanvas'));

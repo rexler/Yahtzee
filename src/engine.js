@@ -6,10 +6,11 @@ var assets = require('./assets');
 
 var gameNumberOfDice = 5;
 
-var THREEKIND = 6, FOURKIND = 7, FULLHOUSE = 8, SMALLST = 9,
-    LARGEST = 10, CHANCE = 11, YAHTZEE = 12;
+var SUM = 6, BONUS = 7, THREEKIND = 8, FOURKIND = 9, FULLHOUSE = 10, SMALLST = 11,
+    LARGEST = 12, CHANCE = 13, YAHTZEE = 14, TOTAL = 15;
 
-var FULLHOUSESCORE = 25, SMALLSTSCORE = 30, LARGESTSCORE = 40, YAHTZEESCORE = 50;
+var BONUSTHRESHOLD = 63;
+var BONUSSCORE = 35, FULLHOUSESCORE = 25, SMALLSTSCORE = 30, LARGESTSCORE = 40, YAHTZEESCORE = 50;
 
 
 var hands = [
@@ -19,18 +20,21 @@ var hands = [
     "Fours",
     "Fives",
     "Sixes",
+    "Sum",
+    "Bonus",
     "Three of a kind",
     "Four of a kind",
     "Full house",
     "Small Straight",
     "Large Straight",
     "Chance",
-    "Yahtzee"
+    "Yahtzee",
+    "Total"
 ];
 
 var players = [];
 
-var scores = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 50];
+var scores = [2, 62, -1, -1, -1, -1, 0, 0, -1, -1, -1, -1, -1, -1, 50, 0];
 
 var getRandomInt = function(max) {
     return Math.ceil(Math.random() * max);
@@ -79,6 +83,8 @@ var playRound = function(keptDice, baseElement) {
     calculateStraights(dice);
 
     calculateFullHouse(dice);
+
+    calculateBonusAndTotal();
 
     drawDice(dice, baseElement);
 
@@ -188,6 +194,24 @@ var calculateFullHouse = function(dice) {
         }
         prevItem = dieItem;
     }
+};
+
+var calculateBonusAndTotal = function() {
+    /* TODO: Refactor so players array is immutable */
+    players.forEach(function(player) {
+        var tot = 0;
+        for (var x = 1; x <= 6; x++) {
+            tot += player.scores[x-1] !== -1 ? player.scores[x-1] : 0;
+        }
+        player.scores[SUM] = tot;
+        player.scores[BONUS] = tot >= BONUSTHRESHOLD ? BONUSSCORE : 0;
+
+        tot = 0;
+        for (var i = SUM; i < player.scores.length; i++) {
+            tot += player.scores[i] !== -1 ? player.scores[i] : 0;
+        }
+        player.scores[TOTAL] = tot;
+    });
 };
 
 /* Revealing module pattern */

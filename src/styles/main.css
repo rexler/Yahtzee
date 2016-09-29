@@ -50,9 +50,14 @@ table {
 
 /* -------- CUSTOM STYLES --------- */
 
+button {
+    font-family: sans-serif;
+}
 a {
     text-decoration: none;
     color: #2E5266;
+    width: 100%;
+    display: block;
 }
 
 body {
@@ -69,6 +74,7 @@ body {
     width: 200px;
     height: 50px;
     margin: 10px 0;
+    font-size: 1em;
 }
 .leftcol {
     width: 45%
