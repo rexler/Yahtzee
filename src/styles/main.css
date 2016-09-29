@@ -52,7 +52,12 @@ table {
 
 a {
     text-decoration: none;
-    color: #000;
+    color: #2E5266;
+}
+
+body {
+    background-color: #D3D0CB;
+    color: #2E5266;
 }
 
 .main {
@@ -78,15 +83,16 @@ a {
 .scores td {
     width: 25%;
     padding: 3px;
-    border: solid 2px #fff;
+    border: solid 2px #D3D0CB;
     border-radius: 5px;
 }
 
 .scores td.red {
-    background-color: indianred;
+    background-color: #2E5266;
+    color: #D3D0CB;
 }
 .scores td.green {
-    background-color: greenyellow;
+    background-color: #9FB1BC;
 }
 
 .scores td:nth-child(1) {
