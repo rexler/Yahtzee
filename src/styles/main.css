@@ -71,7 +71,7 @@ body {
     margin: 10px;
 }
 .btnGen {
-    width: 200px;
+    width: 100px;
     height: 50px;
     margin: 10px 0;
     font-size: 1em;
@@ -91,6 +91,7 @@ body {
     padding: 3px;
     border: solid 2px #D3D0CB;
     border-radius: 5px;
+    vertical-align: middle;
 }
 
 .scores td.red {
@@ -103,4 +104,19 @@ body {
 
 .scores td:nth-child(1) {
     width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+    .leftcol {
+        width: 100%;
+    }
+    .rightcol {
+        width: 100%;
+    }
+    .scores td {
+        height: 2em; /* Makes them easier to touch on mobile */
+    }
 }

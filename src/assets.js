@@ -20,9 +20,10 @@ var drawScores = function(baseElement, scoreList, submitCallback) {
 
         scoreItem.players.forEach(function(player) {
             var td2 = document.createElement('td');
+            /* TODO: Remove anchors */
             if (!player.submitted) {
                 var anchor = document.createElement('a');
-                anchor.setAttribute('href', '#');
+                //anchor.setAttribute('href', '#');
                 // -1 means score not submitted yet
                 anchor.innerText = player.score;
                 anchor.onclick = submitCallback;
