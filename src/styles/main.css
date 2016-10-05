@@ -100,6 +100,8 @@ body {
 }
 .scores td.green {
     background-color: #9FB1BC;
+    cursor: pointer;
+
 }
 
 .scores td:nth-child(1) {

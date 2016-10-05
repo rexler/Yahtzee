@@ -36,6 +36,8 @@ var players = [];
 
 var scores = [2, 62, -1, -1, -1, -1, 0, 0, -1, -1, -1, -1, -1, -1, 50, 0];
 
+var currentPlayer = 0;
+
 var getRandomInt = function(max) {
     return Math.ceil(Math.random() * max);
 };
@@ -56,6 +58,10 @@ var getScores = function() {
 
 var getPlayers = function() {
     return players;
+};
+
+var submitScore = function(playerIndex, scoreType, score) {
+    players[playerIndex].scores[scoreType] = score;
 };
 
 var drawDice = function(dice, baseElement) {
@@ -207,7 +213,7 @@ var calculateBonusAndTotal = function() {
         player.scores[BONUS] = tot >= BONUSTHRESHOLD ? BONUSSCORE : 0;
 
         tot = 0;
-        for (var i = SUM; i < player.scores.length; i++) {
+        for (var i = SUM; i < player.scores.length-1; i++) {
             tot += player.scores[i] !== -1 ? player.scores[i] : 0;
         }
         player.scores[TOTAL] = tot;
@@ -223,7 +229,8 @@ var engine = {
     getPlayers: getPlayers,
     hands: hands,
     startGame: startGame,
-    players: players
+    players: players,
+    submitScore: submitScore
 };
 
 module.exports = engine;

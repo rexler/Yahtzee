@@ -7,11 +7,10 @@
     var util = require('./utility');
 
     var submitScoreEvent = function(evt) {
-        console.log(evt);
-        var i = util.indexInParent(evt.target.parentNode.parentNode); //the hand
-        var p = util.indexInParent(evt.target.parentNode); //2nd or 3rd column (player 1 or 2)
+        var i = util.indexInParent(evt.target.parentNode); //the hand
+        var p = util.indexInParent(evt.target); //2nd or 3rd column (player 1 or 2)
         console.log('player: ' + p + 'index: ' + i);
-        /* TODO: Need a method to submit score */
+        engine.submitScore(p-1, i, 4);
     };
 
     document.getElementById('btnStartGame').onclick = function(evt) {

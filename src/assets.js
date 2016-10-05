@@ -20,17 +20,10 @@ var drawScores = function(baseElement, scoreList, submitCallback) {
 
         scoreItem.players.forEach(function(player) {
             var td2 = document.createElement('td');
-            /* TODO: Remove anchors */
+            td2.innerText = player.score;
             if (!player.submitted) {
-                var anchor = document.createElement('a');
-                //anchor.setAttribute('href', '#');
                 // -1 means score not submitted yet
-                anchor.innerText = player.score;
-                anchor.onclick = submitCallback;
-                td2.appendChild(anchor);
-            }
-            else {
-                td2.innerText = player.score;
+                td2.onclick = submitCallback;
             }
             td2.setAttribute('class', player.submitted ? 'red' : 'green');
             row.appendChild(td2);
