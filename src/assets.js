@@ -12,6 +12,17 @@ var drawScores = function(baseElement, scoreList, submitCallback) {
     var div = baseElement;
     div.innerHTML = '';
     var table = document.createElement('table');
+    var rowHeader = document.createElement('tr');
+    var tdh = document.createElement('th');
+    tdh.innerText = 'Hand';
+    rowHeader.appendChild(tdh);
+    tdh = document.createElement('th');
+    tdh.innerText = 'Player 1';
+    rowHeader.appendChild(tdh);
+    tdh = document.createElement('th');
+    tdh.innerText = 'Player 2';
+    rowHeader.appendChild(tdh);
+    table.appendChild(rowHeader);
     scoreList.forEach(function(scoreItem) {
         var row = document.createElement('tr');
         var td1 = document.createElement('td');

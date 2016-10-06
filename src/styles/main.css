@@ -23,6 +23,7 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
     font-family: sans-serif;
+    text-align: left;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -65,6 +66,10 @@ body {
     color: #2E5266;
 }
 
+#mainCanvas img {
+    cursor: pointer;
+}
+
 .main {
     display: -webkit-flex;
     display: flex;
@@ -86,12 +91,16 @@ body {
 .scores table {
     width: 100%;
 }
-.scores td {
+.scores td, .scores th {
     width: 25%;
     padding: 3px;
     border: solid 2px #D3D0CB;
     border-radius: 5px;
     vertical-align: middle;
+}
+.scores th {
+    font-weight: bold;
+    padding: 10px 0;
 }
 
 .scores td.red {
@@ -101,7 +110,10 @@ body {
 .scores td.green {
     background-color: #9FB1BC;
     cursor: pointer;
+}
 
+.scores td.green:hover {
+    background-color: #6E8898;
 }
 
 .scores td:nth-child(1) {

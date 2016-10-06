@@ -6,6 +6,17 @@
     var assets = require('./assets');
     var util = require('./utility');
 
+    //Init the dice
+    for (var x = 1; x <=5; x++) {
+        assets.appendSVG(document.getElementById('mainCanvas'),
+            'dice-' + x, '50', '50');
+    }
+    document.querySelectorAll('#mainCanvas img').forEach(function(elem) {
+        elem.onclick = function(evt) {
+            console.log(evt.target);
+        };
+    });
+
     var submitScoreEvent = function(evt) {
         var i = util.indexInParent(evt.target.parentNode); //the hand
         var p = util.indexInParent(evt.target); //2nd or 3rd column (player 1 or 2)
