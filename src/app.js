@@ -5,6 +5,7 @@
     var engine = require('./engine');
     var assets = require('./assets');
     var util = require('./utility');
+    var $ = require('jquery');
 
     //Init the dice
     for (var x = 1; x <=5; x++) {
@@ -13,7 +14,13 @@
     }
     document.querySelectorAll('#mainCanvas img').forEach(function(elem) {
         elem.onclick = function(evt) {
-            console.log(evt.target);
+            console.log(evt.target.y);
+
+            var direction = evt.target.y <= 80 ? '+' : '-';
+            $(evt.target).animate({
+                top: direction + "=250"
+            }, 1000);
+
         };
     });
 

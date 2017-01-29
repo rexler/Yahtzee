@@ -66,8 +66,14 @@ body {
     color: #2E5266;
 }
 
+#mainCanvas {
+    height: 20em;
+}
+
 #mainCanvas img {
     cursor: pointer;
+    position: relative;
+    padding-left: 20px;
 }
 
 .main {
